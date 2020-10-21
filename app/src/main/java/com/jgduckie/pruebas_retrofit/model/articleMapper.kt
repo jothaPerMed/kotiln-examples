@@ -8,7 +8,7 @@ class articleMapper {
     fun transform(item: ArticleDto): ArticleModel {
         return ArticleModel(
             item._id,
-            item.title, item.content
+            item.title, item.content, item.image
         )
     }
 }

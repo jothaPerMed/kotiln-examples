@@ -36,6 +36,7 @@ class ApiUtils {
 
 
     fun RequestServer(retrofit: GetDataService): List<ArticleModel>? {
+
         var mapper: articleMapper = articleMapper()
         var lista: List<ArticleModel>? = null
         retrofit.getArticles().enqueue(object : Callback<List<ArticleDto>> {

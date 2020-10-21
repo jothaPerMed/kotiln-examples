@@ -3,14 +3,19 @@ package com.jgduckie.pruebas_retrofit
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Adapter
+import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
+import com.jgduckie.pruebas_retrofit.adapter.ArticleAdapter
 import com.jgduckie.pruebas_retrofit.model.ArticleDto
 import com.jgduckie.pruebas_retrofit.model.ArticleModel
 import com.jgduckie.pruebas_retrofit.model.articleMapper
 import com.jgduckie.pruebas_retrofit.retrofit.ApiUtils
 import com.jgduckie.pruebas_retrofit.retrofit.RetrofitInstance
 import com.jgduckie.pruebas_retrofit.service.GetDataService
+import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import retrofit2.Call
@@ -31,7 +36,30 @@ class MainActivity : AppCompatActivity() {
         val service = retrofit.create(GetDataService::class.java)
 
 
-        apiUtils.RequestServer(service)
+        //apiUtils.RequestServer(service)
+
+
+        var listaprueba: ArrayList<ArticleModel> = ArrayList()
+        listaprueba.add(ArticleModel("afasfgfawdf", "Primero", "Contexto", { "caca" }))
+        listaprueba.add(ArticleModel("afasfgfawdf", "Primero", "Contexto", { "caca" }))
+        listaprueba.add(ArticleModel("afasfgfawdf", "Primero", "Contexto", { "caca" }))
+        listaprueba.add(ArticleModel("afasfgfawdf", "Primero", "Contexto", { "caca" }))
+        listaprueba.add(ArticleModel("afasfgfawdf", "Primero", "Contexto", { "caca" }))
+        listaprueba.add(ArticleModel("afasfgfawdf", "Primero", "Contexto", { "caca" }))
+        listaprueba.add(ArticleModel("afasfgfawdf", "Primero", "Contexto", { "caca" }))
+        listaprueba.add(ArticleModel("afasfgfawdf", "Primero", "Contexto", { "caca" }))
+        listaprueba.add(ArticleModel("afasfgfawdf", "Primero", "Contexto", { "caca" }))
+        listaprueba.add(ArticleModel("afasfgfawdf", "Primero", "Contexto", { "caca" }))
+        listaprueba.add(ArticleModel("afasfgfawdf", "Primero", "Contexto", { "caca" }))
+        listaprueba.add(ArticleModel("afasfgfawdf", "Primero", "Contexto", { "caca" }))
+        listaprueba.add(ArticleModel("afasfgfawdf", "Primero", "Contexto", { "caca" }))
+
+        recicler.layoutManager = LinearLayoutManager(
+            this@MainActivity
+        )
+        recicler.adapter = ArticleAdapter(listaprueba) {
+            Toast.makeText(this@MainActivity, it._id.toString(), Toast.LENGTH_LONG).show()
+        }
 
 
     }
